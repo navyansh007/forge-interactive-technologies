@@ -349,7 +349,7 @@ nav.scrolled {
 
   /* Hero */
   .hero-section    { padding: 80px 24px 0; }
-  .hero-text-col   { padding-bottom: 56px; }
+  .hero-text-col   { justify-content: center; padding-bottom: 0; }
   .hero-scroll-hint { display: none; }
 
   /* Sections */
@@ -404,7 +404,7 @@ nav.scrolled {
 ═══════════════════════════════════════════════════════ */
 @media (max-width: 480px) {
   .hero-section    { padding: 76px 20px 0; }
-  .hero-text-col   { padding-bottom: 48px; }
+  .hero-text-col   { justify-content: center; padding-bottom: 0; }
   .section-outer   { padding: 60px 20px; }
   .stats-outer     { padding: 48px 20px; }
   .process-outer   { padding: 60px 20px; }
