@@ -6,7 +6,7 @@ const CASES = [
   {
     industry: "FinTech",
     name: "Real-Time Trading Infrastructure",
-    outcome: "Rebuilt a legacy order management system handling $2.4B daily volume — zero downtime migration.",
+    outcome: "Rebuilt a legacy order management system handling $2.4B daily volume. Zero downtime migration.",
     metric: "70%",
     metricLabel: "Latency reduction",
   },
@@ -136,7 +136,7 @@ export default function Work() {
     <section id="work" className="section-outer" style={{ background: "var(--bg)" }}>
       <div className="work-header reveal">
         <div>
-          <div className="section-label">// 02 — Case Studies</div>
+          <div className="section-label">// 02: Case Studies</div>
           <h2 className="section-heading">Selected<br />work.</h2>
           <div className="section-rule" />
         </div>

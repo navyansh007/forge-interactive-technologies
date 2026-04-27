@@ -7,7 +7,7 @@ export default function Proof() {
     >
       <div className="reveal" style={{ textAlign: "center" }}>
         <div className="section-label" style={{ textAlign: "center" }}>
-          // 04 — What clients say
+          // 04: What clients say
         </div>
       </div>
 
@@ -29,7 +29,7 @@ export default function Proof() {
           }}
         >
           <span style={{ color: "var(--accent)" }}>&ldquo;</span>
-          Forge didn&apos;t just deliver what we asked for — they told us when we
+          Forge didn&apos;t just deliver what we asked for. They told us when we
           were wrong and built what we actually needed. That kind of honesty is
           rare.
           <span style={{ color: "var(--accent)" }}>&rdquo;</span>
@@ -57,7 +57,7 @@ export default function Proof() {
           >
             Mira Okonkwo
           </strong>
-          CTO, Aether Financial — Series B
+          CTO, Aether Financial, Series B
         </div>
       </div>
     </section>

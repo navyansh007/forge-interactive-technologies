@@ -90,7 +90,7 @@ export default function Footer() {
             color: "var(--muted)",
           }}
         >
-          © 2026 Forge Interactive Technologies — All rights reserved
+          © 2026 Forge Interactive Technologies. All rights reserved.
         </span>
         <div style={{ display: "flex", gap: 24 }}>
           {["LI", "GH", "X"].map((s) => (

@@ -6,7 +6,7 @@ const SERVICES = [
   {
     num: "01",
     name: ["Software", "Development"],
-    desc: "From architecture to deployment — apps that hold up under real load and real users, without the mess you end up inheriting six months later.",
+    desc: "From architecture to deployment. Apps that hold up under real load and real users, without the mess you end up inheriting six months later.",
     tags: ["Web Apps", "APIs", "Mobile", "DevOps"],
     glyph: (
       <svg
@@ -22,7 +22,7 @@ const SERVICES = [
   {
     num: "02",
     name: ["AI & Machine", "Learning"],
-    desc: "Production ML that earns its keep. Custom models, fine-tuned LLMs, and data pipelines built for actual outcomes — not something to show at a conference.",
+    desc: "Production ML that earns its keep. Custom models, fine-tuned LLMs, and data pipelines built for actual outcomes, not something to show at a conference.",
     tags: ["LLMs", "Computer Vision", "Data Pipelines", "MLOps"],
     glyph: (
       <svg
@@ -140,7 +140,7 @@ export default function Services() {
   return (
     <section id="services" className="section-outer" style={{ background: "var(--bg)" }}>
       <div className="reveal" data-delay="0">
-        <div className="section-label">// 01 — What we do</div>
+        <div className="section-label">// 01: What we do</div>
         <h2 className="section-heading">Built for<br />production.</h2>
         <div className="section-rule" />
       </div>

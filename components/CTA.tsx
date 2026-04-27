@@ -49,7 +49,7 @@ export default function CTA() {
           You&apos;ve been planning long enough. Let&apos;s build it.
         </h2>
         <p style={{ fontSize: 16, color: "#6B6B6B", marginBottom: 48 }}>
-          Drop your email and we&apos;ll respond within 24 hours — usually faster.
+          Drop your email and we&apos;ll respond within 24 hours. Usually faster.
         </p>
 
         {!sent ? (

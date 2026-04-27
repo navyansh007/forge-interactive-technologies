@@ -16,7 +16,7 @@ const STEPS = [
   {
     num: "03",
     title: "Build",
-    desc: "Weekly demos, not quarterly surprises. You watch it get built — you're not just handed something at the finish line.",
+    desc: "Weekly demos, not quarterly surprises. You watch it get built, not handed something at the finish line.",
   },
   {
     num: "04",
@@ -35,7 +35,7 @@ export default function Process() {
       style={{ background: "var(--surface)", borderTop: "1px solid var(--border)" }}
     >
       <div className="reveal">
-        <div className="section-label">// 03 — How we work</div>
+        <div className="section-label">// 03: How we work</div>
         <h2 className="section-heading">No black boxes.</h2>
         <div className="section-rule" />
       </div>
