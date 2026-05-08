@@ -26,7 +26,7 @@ const INFO_BLOCKS = [
   },
   {
     label: "Based in",
-    value: "Remote-first. Est. Jaipur, 2026.",
+    value: "Remote-first. Est. 2026.",
   },
 ];
 

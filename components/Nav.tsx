@@ -8,8 +8,8 @@ import { CALENDLY_POPUP_URL } from "@/lib/calendly";
 const NAV_ITEMS = [
   { label: "Services", href: "/#services" },
   { label: "Work",     href: "/work" },
-  { label: "Process",  href: "/#process" },
   { label: "About",    href: "/about" },
+  { label: "Contact",    href: "/contact" },
 ];
 
 const linkStyle: React.CSSProperties = {
