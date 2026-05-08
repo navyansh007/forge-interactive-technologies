@@ -53,7 +53,7 @@ export default function Hero() {
             }}
           >
             <span className="logo-mark" />
-            Forge Interactive Technologies, Est. 2021
+            Forge Interactive Technologies, Est. 2026
           </div>
 
           <h1

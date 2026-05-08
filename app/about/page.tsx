@@ -8,7 +8,7 @@ import CalendlyButton from "@/components/CalendlyButton";
 
 export const metadata: Metadata = {
   title: "About | Forge Interactive",
-  description: "Forge Interactive was founded in 2021 by engineers who got tired of watching good ideas die in planning.",
+  description: "Forge Interactive was founded in 2026 by engineers who got tired of watching good ideas die in planning.",
 };
 
 const VALUES = [
@@ -78,7 +78,7 @@ export default function AboutPage() {
               lineHeight: 1.8,
             }}
           >
-            Forge was started in 2021 by engineers who got tired of watching good ideas die in planning. We build things.
+            Forge was started in 2026 by engineers who got tired of watching good ideas die in planning. We build things.
           </p>
         </section>
 
