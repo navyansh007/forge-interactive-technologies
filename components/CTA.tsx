@@ -52,8 +52,8 @@ export default function CTA() {
             maxWidth: 480,
           }}
         >
-          30 minutes. No pitch deck, no fluff. We talk about what you&apos;re
-          building, what&apos;s in the way, and whether we&apos;re the right fit.
+          30 minutes. No pitch deck. We talk about what you&apos;re building,
+          what&apos;s blocking you, and whether we&apos;re actually the right fit.
         </p>
 
         <CalendlyButton variant="dark" label="Book a Discovery Call →" />

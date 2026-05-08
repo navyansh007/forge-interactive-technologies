@@ -9,7 +9,6 @@ export default function sitemap() {
     { url: `${base}/work`, lastModified: new Date() },
     { url: `${base}/about`, lastModified: new Date() },
     { url: `${base}/contact`, lastModified: new Date() },
-    { url: `${base}/careers`, lastModified: new Date() },
   ];
 
   const caseRoutes = slugs.map((slug) => ({

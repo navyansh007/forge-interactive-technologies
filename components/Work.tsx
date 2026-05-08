@@ -1,66 +1,55 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import CalendlyButton from "./CalendlyButton";
 
-
-const CASES = [
+const CAPABILITIES = [
   {
-    slug: "trading-infra",
-    industry: "FinTech",
-    name: "Real-Time Trading Infrastructure",
-    outcome: "Rebuilt a legacy order management system handling $2.4B daily volume. Zero downtime migration.",
-    metric: "70%",
-    metricLabel: "Latency reduction",
+    domain: "FinTech",
+    title: "FinTech & Trading Systems",
+    body: "Full-stack platforms built for financial data. Order management, payment infrastructure, KYC pipelines. The kind of systems where a slow response is a real problem.",
+    stack: ["Next.js", "Node.js", "PostgreSQL", "Redis", "Kafka"],
   },
   {
-    slug: "diagnostic-imaging",
-    industry: "Healthcare AI",
-    name: "Diagnostic Imaging Pipeline",
-    outcome: "Custom CV model for radiology pre-screening. Deployed across 14 hospital networks in 6 months.",
-    metric: "94%",
-    metricLabel: "Model accuracy",
+    domain: "AI / ML",
+    title: "AI & ML Integration",
+    body: "Custom LLM pipelines, computer vision, and production model deployment. AI that works outside the notebook. Integrated, monitored, and something you can actually maintain.",
+    stack: ["Python", "OpenAI", "PyTorch", "FastAPI", "AWS"],
   },
   {
-    slug: "cross-chain-liquidity",
-    industry: "Web3 / DeFi",
-    name: "Cross-Chain Liquidity Protocol",
-    outcome: "Designed and audited a novel AMM with dynamic fee structures. $80M TVL at launch.",
-    metric: "$80M",
-    metricLabel: "TVL at launch",
+    domain: "Web3 / DeFi",
+    title: "Blockchain & DeFi",
+    body: "Smart contract development, on-chain protocol design, and security audits. We write Solidity that's been stress-tested before it goes near a mainnet.",
+    stack: ["Solidity", "Hardhat", "Foundry", "Ethereum", "TypeScript"],
   },
 ];
 
-function CaseCard({ c, delay }: { c: (typeof CASES)[0]; delay: number }) {
+function CapabilityCard({ c, delay }: { c: (typeof CAPABILITIES)[0]; delay: number }) {
   const [hovered, setHovered] = useState(false);
   return (
-    <Link
-      href={`/work/${c.slug}`}
+    <div
       className="case-card reveal"
       data-delay={delay}
       style={{
         background: hovered ? "var(--surface2)" : "var(--surface)",
         position: "relative",
         overflow: "hidden",
-        cursor: "none",
         transition: "background 0.3s",
-        textDecoration: "none",
-        display: "block",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          border: "1px solid var(--accent)",
+          opacity: hovered ? 1 : 0,
+          transition: "opacity 0.3s",
+          pointerEvents: "none",
+        }}
+      />
       <div className="case-card-inner">
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            border: "1px solid var(--accent)",
-            opacity: hovered ? 1 : 0,
-            transition: "opacity 0.3s",
-            pointerEvents: "none",
-          }}
-        />
         <div
           style={{
             fontFamily: "var(--font-mono), monospace",
@@ -71,7 +60,7 @@ function CaseCard({ c, delay }: { c: (typeof CASES)[0]; delay: number }) {
             marginBottom: 20,
           }}
         >
-          {c.industry}
+          {c.domain}
         </div>
         <div
           style={{
@@ -84,58 +73,31 @@ function CaseCard({ c, delay }: { c: (typeof CASES)[0]; delay: number }) {
             lineHeight: 1.15,
           }}
         >
-          {c.name}
+          {c.title}
         </div>
         <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.7, marginBottom: 32 }}>
-          {c.outcome}
+          {c.body}
         </p>
-        <div
-          style={{
-            fontFamily: "var(--font-display), sans-serif",
-            fontSize: 36,
-            fontWeight: 700,
-            letterSpacing: "-0.03em",
-            color: "var(--accent)",
-            lineHeight: 1,
-          }}
-        >
-          {c.metric}
-        </div>
-        <div
-          style={{
-            fontFamily: "var(--font-mono), monospace",
-            fontSize: 10,
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            color: "var(--muted)",
-            marginTop: 6,
-          }}
-        >
-          {c.metricLabel}
-        </div>
-        {/* Directional arrow on hover */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0, right: 0,
-            width: 120, height: 120,
-            opacity: hovered ? 1 : 0,
-            transform: hovered ? "translateY(0)" : "translateY(12px)",
-            transition: "all 0.4s ease",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            background: "var(--accent-dim)",
-            borderLeft: "1px solid var(--border)",
-            borderTop: "1px solid var(--border)",
-          }}
-        >
-          <span style={{ fontFamily: "var(--font-mono), monospace", fontSize: 28, color: "var(--accent)" }}>
-            ↗
-          </span>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+          {c.stack.map((tech) => (
+            <span
+              key={tech}
+              style={{
+                fontFamily: "var(--font-mono), monospace",
+                fontSize: 9,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "var(--muted)",
+                border: "1px solid var(--border)",
+                padding: "3px 8px",
+              }}
+            >
+              {tech}
+            </span>
+          ))}
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 
@@ -144,39 +106,19 @@ export default function Work() {
     <section id="work" className="section-outer" style={{ background: "var(--bg)" }}>
       <div className="work-header reveal">
         <div>
-          <div className="section-label">// 02: Case Studies</div>
-          <h2 className="section-heading">Selected<br />work.</h2>
+          <div className="section-label">// 02: What We Build</div>
+          <h2 className="section-heading">Built for<br />what&apos;s hard.</h2>
           <div className="section-rule" />
         </div>
-        <Link
-          href="/work"
-          style={{
-            fontFamily: "var(--font-mono), monospace",
-            fontSize: 11,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: "var(--muted)",
-            textDecoration: "none",
-            borderBottom: "1px solid var(--border)",
-            paddingBottom: 4,
-            transition: "color 0.2s, border-color 0.2s",
-            alignSelf: "flex-end",
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLElement).style.color = "var(--accent)";
-            (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLElement).style.color = "var(--muted)";
-            (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
-          }}
-        >
-          All Projects →
-        </Link>
+        <CalendlyButton
+          variant="outline"
+          label="Start a Project →"
+          style={{ alignSelf: "flex-end" }}
+        />
       </div>
       <div className="grid-3" style={{ marginTop: 0 }}>
-        {CASES.map((c, i) => (
-          <CaseCard key={i} c={c} delay={i * 100} />
+        {CAPABILITIES.map((c, i) => (
+          <CapabilityCard key={i} c={c} delay={i * 100} />
         ))}
       </div>
     </section>

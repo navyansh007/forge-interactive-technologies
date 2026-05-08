@@ -1,10 +1,10 @@
 import CountUp from "./CountUp";
 
 const STATS = [
-  { n: 47, suffix: "",  label: "Projects Delivered" },
-  { n: 12, suffix: "+", label: "Industries Served" },
-  { n: 98, suffix: "%", label: "Client Retention" },
-  { n: 3,  suffix: "x", label: "Avg. Performance Gain" },
+  { n: 3,   suffix: "",  label: "Technology Domains" },
+  { n: 4,   suffix: "",  label: "Core Services" },
+  { n: 2,   suffix: "",  label: "Experts on Every Project" },
+  { n: 100, suffix: "%", label: "End-to-End Delivery" },
 ];
 
 export default function Stats() {

@@ -17,7 +17,7 @@ const INFO_BLOCKS = [
   },
   {
     label: "Format",
-    value: "Video call or phone — your choice.",
+    value: "Video call or phone, your choice.",
   },
   {
     label: "Email",

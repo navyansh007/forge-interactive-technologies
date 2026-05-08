@@ -6,7 +6,7 @@ const SERVICES = [
   {
     num: "01",
     name: ["Software", "Development"],
-    desc: "From architecture to deployment. Apps that hold up under real load and real users, without the mess you end up inheriting six months later.",
+    desc: "Architecture to deployment. Apps that hold up under real load, without the mess you end up maintaining six months later.",
     tags: ["Web Apps", "APIs", "Mobile", "DevOps"],
     glyph: (
       <svg
@@ -22,7 +22,7 @@ const SERVICES = [
   {
     num: "02",
     name: ["AI & Machine", "Learning"],
-    desc: "Production ML that earns its keep. Custom models, fine-tuned LLMs, and data pipelines built for actual outcomes, not something to show at a conference.",
+    desc: "Custom models, fine-tuned LLMs, and data pipelines built around real outcomes. The kind of AI that still works three months after the demo.",
     tags: ["LLMs", "Computer Vision", "Data Pipelines", "MLOps"],
     glyph: (
       <svg
@@ -42,7 +42,7 @@ const SERVICES = [
   {
     num: "03",
     name: ["Blockchain &", "Web3"],
-    desc: "Smart contracts, DeFi protocols, and decentralized infrastructure. We write auditable code because in on-chain systems, a bug is a headline.",
+    desc: "Smart contracts, DeFi protocols, and on-chain infrastructure. We write auditable code because on-chain, you don't get to push a hotfix.",
     tags: ["Smart Contracts", "DeFi", "NFT Infra", "Audits"],
     glyph: (
       <svg

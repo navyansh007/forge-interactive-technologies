@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollReveal from "@/components/ScrollReveal";
 import Stats from "@/components/Stats";
+import CalendlyButton from "@/components/CalendlyButton";
 
 export const metadata: Metadata = {
   title: "About | Forge Interactive",
@@ -14,31 +14,33 @@ export const metadata: Metadata = {
 const VALUES = [
   {
     title: "Direct feedback",
-    body: "We'll tell you when something won't work. If that's uncomfortable, we're probably not a fit.",
+    body: "We'll tell you when something won't work. If you'd rather not hear that, we're probably not a good fit.",
   },
   {
     title: "No black boxes",
-    body: "Every decision is documented. You own the architecture as much as we do.",
+    body: "Every decision gets documented. You own the architecture as much as we do.",
   },
   {
     title: "Ship over spec",
-    body: "A working feature beats a perfect proposal every time. We move fast and show you the work.",
+    body: "A working feature beats a perfect proposal. We move fast and show you the work as it goes.",
   },
   {
     title: "Post-launch support",
-    body: "90-day support window on every engagement. We don't disappear after handoff.",
+    body: "90-day support window on every engagement. We stick around after the handoff.",
   },
 ];
 
 const TEAM = [
   {
     name: "Navyansh Kesarwani",
-    role: "Founder & CTO",
-    bio: "Full-stack engineer and systems architect. Started Forge after years building financial infrastructure.",
+    role: "Founder & Lead Engineer",
+    bio: "Full-stack engineer and blockchain architect. Owns technical direction and delivery across web, mobile, and on-chain systems.",
   },
-  { name: "TBD", role: "Engineering Lead", bio: "" },
-  { name: "TBD", role: "Senior Engineer", bio: "" },
-  { name: "TBD", role: "Product Engineer", bio: "" },
+  {
+    name: "Manthan Vats",
+    role: "Co-Founder & AI Expert",
+    bio: "AI and machine learning engineer. Builds LLM pipelines, fine-tunes models, and deploys AI that keeps working after the first week.",
+  },
 ];
 
 export default function AboutPage() {
@@ -119,9 +121,9 @@ export default function AboutPage() {
             </div>
             <div style={{ flex: 1, minWidth: 280 }}>
               {[
-                "Forge started in 2021 when our founding team kept running into the same problem: companies with real technical ambition, stuck working with agencies that would spec everything to death and then deliver something no one could maintain.",
-                "We approach every engagement as engineers first. We'll tell you when your architecture is wrong. We'll push back on timelines that aren't real. And we'll flag scope that will bite you later, before we write it.",
-                "Four years in, we've shipped trading infrastructure that handles billions daily, AI systems that work in production, and on-chain protocols that have been audited and held. We're still small on purpose.",
+                "Forge was started by two engineers: Navyansh in full-stack and blockchain, Manthan in AI and machine learning. Between us, we cover what most modern products actually need built.",
+                "We treat every engagement as engineers, not consultants. We'll tell you when your architecture is wrong. We'll push back on timelines that aren't real. We'll flag scope that will hurt you later, before we build it.",
+                "We're new as an agency, but not new to building. The work we do now is built on years of solving real technical problems. What that means for you is straightforward: we own your project from the first line of code to production.",
               ].map((para, i) => (
                 <p
                   key={i}
@@ -171,7 +173,7 @@ export default function AboutPage() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
+              gridTemplateColumns: "repeat(2, 1fr)",
               gap: "1px",
               background: "var(--border)",
               marginTop: 64,
@@ -183,23 +185,14 @@ export default function AboutPage() {
                 key={i}
                 className="reveal"
                 data-delay={i * 80}
-                style={{ background: "var(--bg)", padding: "48px 40px" }}
+                style={{ background: "var(--bg)", padding: "48px 40px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}
               >
-                <div
-                  style={{
-                    width: 64,
-                    height: 64,
-                    background: "var(--surface2)",
-                    border: "1px solid var(--border)",
-                  }}
-                />
                 <div
                   style={{
                     fontFamily: "var(--font-display), sans-serif",
                     fontSize: 16,
                     fontWeight: 700,
                     color: "var(--offwhite)",
-                    marginTop: 20,
                   }}
                 >
                   {member.name}
@@ -216,39 +209,24 @@ export default function AboutPage() {
                 >
                   {member.role}
                 </div>
-                {member.bio ? (
-                  <p
-                    style={{
-                      fontFamily: "var(--font-body), sans-serif",
-                      fontSize: 13,
-                      color: "var(--muted)",
-                      lineHeight: 1.7,
-                      marginTop: 12,
-                      maxWidth: 220,
-                    }}
-                  >
-                    {member.bio}
-                  </p>
-                ) : (
-                  <p
-                    style={{
-                      fontFamily: "var(--font-body), sans-serif",
-                      fontSize: 13,
-                      color: "var(--muted)",
-                      lineHeight: 1.7,
-                      marginTop: 12,
-                      fontStyle: "italic",
-                    }}
-                  >
-                    Team member details coming soon.
-                  </p>
-                )}
+                <p
+                  style={{
+                    fontFamily: "var(--font-body), sans-serif",
+                    fontSize: 13,
+                    color: "var(--muted)",
+                    lineHeight: 1.7,
+                    marginTop: 12,
+                    maxWidth: 260,
+                  }}
+                >
+                  {member.bio}
+                </p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Hiring strip */}
+        {/* CTA strip */}
         <section
           style={{
             background: "var(--accent)",
@@ -272,32 +250,16 @@ export default function AboutPage() {
                 marginBottom: 12,
               }}
             >
-              We&apos;re hiring.
+              Let&apos;s build something.
             </h2>
             <p style={{ fontSize: 14, color: "rgba(0,0,0,0.6)", fontFamily: "var(--font-body), sans-serif" }}>
-              Two open roles. Both engineering.
+              30 minutes. No pitch deck. Just a real conversation.
             </p>
           </div>
-          <Link
-            href="/careers"
-            style={{
-              fontFamily: "var(--font-mono), monospace",
-              fontSize: 12,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              border: "1px solid #000",
-              padding: "14px 28px",
-              color: "#000",
-              background: "transparent",
-              textDecoration: "none",
-              cursor: "none",
-              display: "inline-block",
-              transition: "background 0.2s, color 0.2s",
-              whiteSpace: "nowrap",
-            }}
-          >
-            See Open Roles →
-          </Link>
+          <CalendlyButton
+            variant="dark"
+            label="Book a Discovery Call →"
+          />
         </section>
 
       </main>

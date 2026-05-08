@@ -245,6 +245,14 @@ nav.scrolled {
   margin-bottom: 64px;
 }
 
+/* ─── WORK DOMAINS GRID ─────────────────────────────── */
+.work-domains-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+
 /* ─── FOOTER BOTTOM ─────────────────────────────────── */
 .footer-bottom {
   display: flex;
@@ -359,7 +367,7 @@ nav.scrolled {
 
 /* ─── TEAM GRID ─────────────────────────────────────── */
 .team-grid {
-  grid-template-columns: repeat(4, 1fr) !important;
+  grid-template-columns: repeat(2, 1fr) !important;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -389,7 +397,7 @@ nav.scrolled {
 
   .case-content-grid { grid-template-columns: 1fr; gap: 40px; }
   .contact-body-grid { grid-template-columns: 1fr; gap: 56px; }
-  .team-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .team-grid { grid-template-columns: 1fr !important; }
 }
 
 /* CTA form responsive input */
@@ -437,7 +445,10 @@ nav.scrolled {
   /* Grids */
   .grid-3,
   .grid-4,
-  .process-grid    { grid-template-columns: 1fr; }
+  .process-grid,
+  .work-domains-grid { grid-template-columns: 1fr; }
+
+  .work-domains-grid > div { padding: 36px 24px; }
 
   .grid-3 { margin-top: 40px; }
   .process-grid { margin-top: 40px; }

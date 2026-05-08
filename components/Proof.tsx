@@ -1,18 +1,15 @@
-const TESTIMONIALS = [
+const COMMITMENTS = [
   {
-    quote: "Forge didn't just deliver what we asked for. They told us when we were wrong and built what we actually needed. That kind of honesty is rare.",
-    name: "Mira Okonkwo",
-    role: "CTO, Aether Financial, Series B",
+    title: "You talk to the builders.",
+    body: "Both founders write the code. When you're on a call with us, you're talking to the engineers on your project. No account managers, no relayed messages.",
   },
   {
-    quote: "They caught a critical race condition in our trading engine before we went live. That alone paid for the engagement.",
-    name: "Arjun Mehta",
-    role: "VP Engineering, NovaPay",
+    title: "From zero to deployed.",
+    body: "We handle architecture, development, testing, and launch. One team owns the whole thing. You get a working product, not a handover document.",
   },
   {
-    quote: "Four months from kickoff to mainnet. I've never seen a team ship a DeFi protocol that fast without cutting corners.",
-    name: "Sarah Chen",
-    role: "Founder, QuantumLP",
+    title: "We push back when it counts.",
+    body: "If your spec has a flaw, we'll say so before we build it. If the timeline isn't realistic, we'll tell you. We'd rather have that conversation early.",
   },
 ];
 
@@ -23,17 +20,14 @@ export default function Proof() {
       className="section-outer"
       style={{ background: "var(--bg)", borderTop: "1px solid var(--border)" }}
     >
-      <div className="reveal" style={{ textAlign: "center" }}>
-        <div className="section-label" style={{ textAlign: "center" }}>
-          // 04: What clients say
-        </div>
+      <div className="reveal">
+        <div className="section-label">// 04: Why us</div>
+        <h2 className="section-heading">What you can<br />count on.</h2>
+        <div className="section-rule" />
       </div>
 
-      <div
-        className="grid-3"
-        style={{ marginTop: 48 }}
-      >
-        {TESTIMONIALS.map((t, i) => (
+      <div className="grid-3" style={{ marginTop: 48 }}>
+        {COMMITMENTS.map((c, i) => (
           <div
             key={i}
             className="reveal"
@@ -46,55 +40,45 @@ export default function Proof() {
           >
             <div
               style={{
-                fontFamily: "var(--font-display), sans-serif",
-                fontSize: 48,
+                fontFamily: "var(--font-mono), monospace",
+                fontSize: 10,
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
                 color: "var(--accent)",
-                lineHeight: 1,
-                marginBottom: 16,
+                marginBottom: 20,
               }}
             >
-              &ldquo;
+              0{i + 1}
             </div>
             <p
               style={{
                 fontFamily: "var(--font-display), sans-serif",
-                fontSize: 16,
-                fontStyle: "italic",
+                fontSize: 18,
+                fontWeight: 700,
                 color: "var(--offwhite)",
-                lineHeight: 1.7,
+                lineHeight: 1.3,
+                marginBottom: 16,
+                letterSpacing: "-0.02em",
               }}
             >
-              {t.quote}
+              {c.title}
             </p>
             <div
               style={{
                 borderTop: "1px solid var(--border)",
-                marginTop: 24,
                 marginBottom: 20,
               }}
             />
-            <div
+            <p
               style={{
-                fontFamily: "var(--font-display), sans-serif",
+                fontFamily: "var(--font-body), sans-serif",
                 fontSize: 14,
-                fontWeight: 600,
-                color: "var(--offwhite)",
-              }}
-            >
-              {t.name}
-            </div>
-            <div
-              style={{
-                fontFamily: "var(--font-mono), monospace",
-                fontSize: 10,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
                 color: "var(--muted)",
-                marginTop: 4,
+                lineHeight: 1.8,
               }}
             >
-              {t.role}
-            </div>
+              {c.body}
+            </p>
           </div>
         ))}
       </div>

@@ -25,6 +25,10 @@ export const metadata: Metadata = {
   title: "Forge Interactive Technologies",
   description:
     "We build software, AI systems, and blockchain infrastructure. The kind that holds up when real users hit it.",
+  icons: {
+    icon: "/logo-dark.svg",
+    shortcut: "/logo-dark.svg",
+  },
   openGraph: {
     title: "Forge Interactive Technologies",
     description: "We build software, AI systems, and blockchain infrastructure.",

@@ -6,22 +6,22 @@ const STEPS = [
   {
     num: "01",
     title: "Discover",
-    desc: "We get into the weeds of your problem before writing a line of code. Architecture decisions made late are expensive.",
+    desc: "We dig into your problem before writing any code. Architecture decisions made late cost more to fix than to get right early.",
   },
   {
     num: "02",
     title: "Architect",
-    desc: "System design, tech stack, and risk mapping. You sign off on the plan before we write a single line.",
+    desc: "System design, tech stack, and risk mapping. You sign off before we start building.",
   },
   {
     num: "03",
     title: "Build",
-    desc: "Weekly demos, not quarterly surprises. You watch it get built, not handed something at the finish line.",
+    desc: "Weekly demos, not quarterly surprises. You see it taking shape as it goes, not at the finish line.",
   },
   {
     num: "04",
     title: "Ship",
-    desc: "Deployment, monitoring, documentation, and a 90-day support window. We don't disappear after handoff.",
+    desc: "Deployment, monitoring, documentation, and a 90-day support window. We stick around after launch.",
   },
 ];
 

@@ -21,7 +21,6 @@ const COLS: { title: string; links: FooterLink[] }[] = [
       { label: "Work",    href: "/work" },
       { label: "Process", href: "/#process" },
       { label: "Team",    href: "/about#team" },
-      { label: "Careers", href: "/careers" },
     ],
   },
   {
