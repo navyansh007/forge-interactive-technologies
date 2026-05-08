@@ -1,28 +1,102 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+
+type FooterLink = { label: string; href: string };
+
+const COLS: { title: string; links: FooterLink[] }[] = [
+  {
+    title: "Services",
+    links: [
+      { label: "Software Dev", href: "/#services" },
+      { label: "AI / ML",      href: "/#services" },
+      { label: "Blockchain",   href: "/#services" },
+      { label: "Audits",       href: "/#services" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "Work",    href: "/work" },
+      { label: "Process", href: "/#process" },
+      { label: "Team",    href: "/about#team" },
+      { label: "Careers", href: "/careers" },
+    ],
+  },
+  {
+    title: "Contact",
+    links: [
+      { label: "hello@forgeinteractive.io", href: "mailto:hello@forgeinteractive.io" },
+      { label: "LinkedIn",  href: "#" },
+      { label: "GitHub",    href: "#" },
+      { label: "Twitter / X", href: "#" },
+    ],
+  },
+];
+
+const SOCIALS = [
+  { label: "LI", ariaLabel: "LinkedIn",    href: "#" },
+  { label: "GH", ariaLabel: "GitHub",      href: "#" },
+  { label: "X",  ariaLabel: "Twitter / X", href: "#" },
+];
+
+const linkStyle: React.CSSProperties = {
+  fontSize: 14,
+  color: "var(--muted)",
+  textDecoration: "none",
+  background: "none",
+  border: "none",
+  padding: 0,
+  cursor: "none",
+  fontFamily: "inherit",
+  transition: "color 0.2s",
+  textAlign: "left",
+};
+
+const hoverHandlers = {
+  onMouseEnter: (e: React.MouseEvent) => ((e.currentTarget as HTMLElement).style.color = "var(--offwhite)"),
+  onMouseLeave: (e: React.MouseEvent) => ((e.currentTarget as HTMLElement).style.color = "var(--muted)"),
+};
+
+function FooterLink({ link }: { link: FooterLink }) {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  // External or dead links stay as anchors
+  if (!link.href.startsWith("/")) {
+    return (
+      <a href={link.href} style={linkStyle} {...hoverHandlers}>
+        {link.label}
+      </a>
+    );
+  }
+
+  function handleClick() {
+    const hashIndex = link.href.indexOf("#");
+    if (hashIndex === -1) {
+      // Pure page navigation
+      router.push(link.href);
+      return;
+    }
+    const page = link.href.slice(0, hashIndex) || "/";
+    const sectionId = link.href.slice(hashIndex + 1);
+    if (pathname === page) {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      sessionStorage.setItem("scrollTarget", sectionId);
+      router.push(page);
+    }
+  }
+
+  return (
+    <button onClick={handleClick} style={linkStyle} {...hoverHandlers}>
+      {link.label}
+    </button>
+  );
+}
+
 export default function Footer() {
-  const linkStyle: React.CSSProperties = {
-    fontSize: 14,
-    color: "var(--muted)",
-    textDecoration: "none",
-    transition: "color 0.2s",
-  };
-
-  const cols = [
-    {
-      title: "Services",
-      links: ["Software Dev", "AI / ML", "Blockchain", "Audits"],
-    },
-    {
-      title: "Company",
-      links: ["Work", "Process", "Team", "Careers"],
-    },
-    {
-      title: "Contact",
-      links: ["hello@forgeinteractive.io", "LinkedIn", "GitHub", "Twitter / X"],
-    },
-  ];
-
   return (
     <footer
       className="footer-outer"
@@ -31,25 +105,28 @@ export default function Footer() {
       <div className="footer-grid">
         {/* Brand */}
         <div>
-          <div
+          <Link
+            href="/"
             style={{
               fontFamily: "var(--font-display), sans-serif",
               fontWeight: 700,
               fontSize: 20,
               letterSpacing: "-0.02em",
               color: "var(--offwhite)",
+              textDecoration: "none",
+              display: "inline-block",
               marginBottom: 16,
             }}
           >
             FORGE<span style={{ color: "var(--accent)" }}>.</span>
-          </div>
+          </Link>
           <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.7, maxWidth: 240 }}>
             We build what others spec. Software, AI, and blockchain for teams that ship.
           </p>
         </div>
 
         {/* Link columns */}
-        {cols.map((col) => (
+        {COLS.map((col) => (
           <div key={col.title}>
             <div
               style={{
@@ -64,16 +141,9 @@ export default function Footer() {
               {col.title}
             </div>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 12 }}>
-              {col.links.map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
-                    style={linkStyle}
-                    onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--offwhite)")}
-                    onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--muted)")}
-                  >
-                    {item}
-                  </a>
+              {col.links.map((link) => (
+                <li key={link.label}>
+                  <FooterLink link={link} />
                 </li>
               ))}
             </ul>
@@ -90,13 +160,14 @@ export default function Footer() {
             color: "var(--muted)",
           }}
         >
-          © 2026 Forge Interactive Technologies. All rights reserved.
+          © {new Date().getFullYear()} Forge Interactive Technologies. All rights reserved.
         </span>
         <div style={{ display: "flex", gap: 24 }}>
-          {["LI", "GH", "X"].map((s) => (
+          {SOCIALS.map((s) => (
             <a
-              key={s}
-              href="#"
+              key={s.label}
+              href={s.href}
+              aria-label={s.ariaLabel}
               style={{
                 fontFamily: "var(--font-mono), monospace",
                 fontSize: 11,
@@ -109,7 +180,7 @@ export default function Footer() {
               onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--accent)")}
               onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--muted)")}
             >
-              {s}
+              {s.label}
             </a>
           ))}
         </div>

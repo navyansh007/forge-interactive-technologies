@@ -2,6 +2,7 @@ const TECHS = [
   "React", "Next.js", "TypeScript", "Python", "Solidity",
   "TensorFlow", "PyTorch", "Rust", "Go", "GraphQL",
   "IPFS", "Ethereum", "PostgreSQL", "Redis", "Docker", "Kubernetes",
+  "Node.js", "AWS", "Vercel", "Hardhat", "Prisma", "OpenAI",
 ];
 
 export default function Marquee() {

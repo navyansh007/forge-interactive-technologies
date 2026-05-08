@@ -1,12 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { CALENDLY_POPUP_URL } from "@/lib/calendly";
 
 const NAV_ITEMS = [
-  { label: "Services", href: "#services" },
-  { label: "Work",     href: "#work" },
-  { label: "Process",  href: "#process" },
-  { label: "About",    href: "#proof" },
+  { label: "Services", href: "/#services" },
+  { label: "Work",     href: "/work" },
+  { label: "Process",  href: "/#process" },
+  { label: "About",    href: "/about" },
 ];
 
 const linkStyle: React.CSSProperties = {
@@ -22,6 +25,8 @@ const linkStyle: React.CSSProperties = {
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 40);
@@ -29,14 +34,31 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", h);
   }, []);
 
-  // Close menu on route-like clicks
   const handleNavClick = () => setMenuOpen(false);
+
+  function openCalendly() {
+    setMenuOpen(false);
+    (window as Window & { Calendly?: { initPopupWidget: (opts: { url: string }) => void } }).Calendly?.initPopupWidget({ url: CALENDLY_POPUP_URL });
+  }
+
+  function handleSectionLink(e: React.MouseEvent, href: string) {
+    const sectionId = href.replace("/#", "");
+    setMenuOpen(false);
+    if (pathname === "/") {
+      e.preventDefault();
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      e.preventDefault();
+      sessionStorage.setItem("scrollTarget", sectionId);
+      router.push("/");
+    }
+  }
 
   return (
     <>
       <nav className={scrolled ? "scrolled" : ""}>
-        <a
-          href="#"
+        <Link
+          href="/"
           style={{
             fontFamily: "var(--font-display), sans-serif",
             fontWeight: 700,
@@ -47,27 +69,30 @@ export default function Nav() {
           }}
         >
           FORGE<span style={{ color: "var(--accent)" }}>.</span>
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <ul className="nav-links">
           {NAV_ITEMS.map((item) => (
             <li key={item.label}>
-              <a
+              <Link
                 href={item.href}
                 style={linkStyle}
+                onClick={item.href.startsWith("/#") ? (e) => handleSectionLink(e, item.href) : handleNavClick}
                 onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--offwhite)")}
                 onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--muted)")}
               >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
         {/* Desktop CTA */}
         <button
+          onClick={openCalendly}
           className="nav-cta-desktop"
+          aria-label="Start a project with Forge Interactive"
           style={{
             fontFamily: "var(--font-mono), monospace",
             fontSize: 12,
@@ -80,8 +105,8 @@ export default function Nav() {
             cursor: "none",
             fontWeight: 500,
           }}
-          onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = "0.85")}
-          onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = "1")}
+          onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.85")}
+          onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
         >
           Start a Project
         </button>
@@ -102,10 +127,10 @@ export default function Nav() {
       {menuOpen && (
         <div className="nav-mobile-menu">
           {NAV_ITEMS.map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
-              onClick={handleNavClick}
+              onClick={item.href.startsWith("/#") ? (e) => handleSectionLink(e, item.href) : handleNavClick}
               style={{
                 fontFamily: "var(--font-mono), monospace",
                 fontSize: 13,
@@ -116,11 +141,10 @@ export default function Nav() {
               }}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#cta"
-            onClick={handleNavClick}
+          <button
+            onClick={openCalendly}
             style={{
               fontFamily: "var(--font-mono), monospace",
               fontSize: 12,
@@ -128,14 +152,16 @@ export default function Nav() {
               textTransform: "uppercase",
               background: "var(--accent)",
               color: "#000",
+              border: "none",
               padding: "12px 20px",
-              textDecoration: "none",
               fontWeight: 500,
               textAlign: "center",
+              cursor: "none",
+              width: "100%",
             }}
           >
             Start a Project
-          </a>
+          </button>
         </div>
       )}
     </>

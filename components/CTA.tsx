@@ -1,11 +1,6 @@
-"use client";
-
-import { useState } from "react";
+import CalendlyButton from "./CalendlyButton";
 
 export default function CTA() {
-  const [email, setEmail] = useState("");
-  const [sent, setSent] = useState(false);
-
   return (
     <section
       id="cta"
@@ -43,69 +38,43 @@ export default function CTA() {
             letterSpacing: "-0.03em",
             color: "#0A0A0A",
             lineHeight: 1.0,
-            marginBottom: 32,
+            marginBottom: 24,
           }}
         >
           You&apos;ve been planning long enough. Let&apos;s build it.
         </h2>
-        <p style={{ fontSize: 16, color: "#6B6B6B", marginBottom: 48 }}>
-          Drop your email and we&apos;ll respond within 24 hours. Usually faster.
+        <p
+          style={{
+            fontSize: 16,
+            color: "#6B6B6B",
+            marginBottom: 48,
+            lineHeight: 1.7,
+            maxWidth: 480,
+          }}
+        >
+          30 minutes. No pitch deck, no fluff. We talk about what you&apos;re
+          building, what&apos;s in the way, and whether we&apos;re the right fit.
         </p>
 
-        {!sent ? (
-          <form
-            style={{ display: "flex", gap: 0, maxWidth: 460, flexWrap: "wrap" }}
-            onSubmit={(e) => { e.preventDefault(); if (email) setSent(true); }}
+        <CalendlyButton variant="dark" label="Book a Discovery Call →" />
+
+        <p
+          style={{
+            fontFamily: "var(--font-mono), monospace",
+            fontSize: 11,
+            letterSpacing: "0.08em",
+            color: "#B0ADA8",
+            marginTop: 20,
+          }}
+        >
+          or email us at{" "}
+          <a
+            href="mailto:hello@forgeinteractive.io"
+            style={{ color: "#6B6B6B", textDecoration: "none", borderBottom: "1px solid #D0CCC4" }}
           >
-            <input
-              type="email"
-              placeholder="your@company.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              style={{
-                flex: "1 1 200px",
-                fontFamily: "var(--font-body), sans-serif",
-                fontSize: 14,
-                background: "#fff",
-                border: "1px solid #D0CCC4",
-                borderRight: "none",
-                padding: "14px 18px",
-                color: "#0A0A0A",
-                outline: "none",
-                minWidth: 0,
-              }}
-            />
-            <button
-              type="submit"
-              style={{
-                fontFamily: "var(--font-mono), monospace",
-                fontSize: 12,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                background: "#0A0A0A",
-                color: "#fff",
-                border: "none",
-                padding: "14px 24px",
-                cursor: "none",
-                whiteSpace: "nowrap",
-                flex: "0 0 auto",
-              }}
-            >
-              Get in Touch →
-            </button>
-          </form>
-        ) : (
-          <div
-            style={{
-              fontFamily: "var(--font-mono), monospace",
-              fontSize: 13,
-              color: "#0A0A0A",
-              letterSpacing: "0.08em",
-            }}
-          >
-            ✓ &nbsp;We&apos;ll be in touch. Keep building.
-          </div>
-        )}
+            hello@forgeinteractive.io
+          </a>
+        </p>
       </div>
     </section>
   );

@@ -1,3 +1,21 @@
+const TESTIMONIALS = [
+  {
+    quote: "Forge didn't just deliver what we asked for. They told us when we were wrong and built what we actually needed. That kind of honesty is rare.",
+    name: "Mira Okonkwo",
+    role: "CTO, Aether Financial, Series B",
+  },
+  {
+    quote: "They caught a critical race condition in our trading engine before we went live. That alone paid for the engagement.",
+    name: "Arjun Mehta",
+    role: "VP Engineering, NovaPay",
+  },
+  {
+    quote: "Four months from kickoff to mainnet. I've never seen a team ship a DeFi protocol that fast without cutting corners.",
+    name: "Sarah Chen",
+    role: "Founder, QuantumLP",
+  },
+];
+
 export default function Proof() {
   return (
     <section
@@ -12,53 +30,73 @@ export default function Proof() {
       </div>
 
       <div
-        className="reveal"
-        data-delay="100"
-        style={{ maxWidth: 800, margin: "64px auto 0", textAlign: "center" }}
+        className="grid-3"
+        style={{ marginTop: 48 }}
       >
-        <p
-          style={{
-            fontFamily: "var(--font-display), sans-serif",
-            fontSize: "clamp(20px, 3vw, 36px)",
-            fontWeight: 500,
-            letterSpacing: "-0.02em",
-            color: "var(--offwhite)",
-            lineHeight: 1.4,
-            marginBottom: 40,
-            fontStyle: "italic",
-          }}
-        >
-          <span style={{ color: "var(--accent)" }}>&ldquo;</span>
-          Forge didn&apos;t just deliver what we asked for. They told us when we
-          were wrong and built what we actually needed. That kind of honesty is
-          rare.
-          <span style={{ color: "var(--accent)" }}>&rdquo;</span>
-        </p>
-        <div
-          style={{
-            fontFamily: "var(--font-mono), monospace",
-            fontSize: 11,
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-            color: "var(--muted)",
-          }}
-        >
-          <strong
+        {TESTIMONIALS.map((t, i) => (
+          <div
+            key={i}
+            className="reveal"
+            data-delay={i * 100}
             style={{
-              color: "var(--offwhite)",
-              fontWeight: 500,
-              display: "block",
-              marginBottom: 4,
-              fontFamily: "var(--font-display), sans-serif",
-              fontSize: 14,
-              letterSpacing: 0,
-              textTransform: "none",
+              background: "var(--surface)",
+              padding: "40px 36px",
+              position: "relative",
             }}
           >
-            Mira Okonkwo
-          </strong>
-          CTO, Aether Financial, Series B
-        </div>
+            <div
+              style={{
+                fontFamily: "var(--font-display), sans-serif",
+                fontSize: 48,
+                color: "var(--accent)",
+                lineHeight: 1,
+                marginBottom: 16,
+              }}
+            >
+              &ldquo;
+            </div>
+            <p
+              style={{
+                fontFamily: "var(--font-display), sans-serif",
+                fontSize: 16,
+                fontStyle: "italic",
+                color: "var(--offwhite)",
+                lineHeight: 1.7,
+              }}
+            >
+              {t.quote}
+            </p>
+            <div
+              style={{
+                borderTop: "1px solid var(--border)",
+                marginTop: 24,
+                marginBottom: 20,
+              }}
+            />
+            <div
+              style={{
+                fontFamily: "var(--font-display), sans-serif",
+                fontSize: 14,
+                fontWeight: 600,
+                color: "var(--offwhite)",
+              }}
+            >
+              {t.name}
+            </div>
+            <div
+              style={{
+                fontFamily: "var(--font-mono), monospace",
+                fontSize: 10,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "var(--muted)",
+                marginTop: 4,
+              }}
+            >
+              {t.role}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -67,6 +67,7 @@ export default function Process() {
                 />
                 {i < STEPS.length - 1 && (
                   <div
+                    className="step-connector"
                     style={{
                       flex: 1, height: 1,
                       background: active === i ? "var(--accent)" : "var(--border)",

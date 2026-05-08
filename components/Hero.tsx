@@ -108,6 +108,7 @@ export default function Hero() {
             }}
           >
             <button
+              onClick={() => document.getElementById("work")?.scrollIntoView({ behavior: "smooth" })}
               style={{
                 fontFamily: "var(--font-mono), monospace",
                 fontSize: 12,
@@ -124,6 +125,7 @@ export default function Hero() {
               See Our Work
             </button>
             <button
+              onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
               style={{
                 fontFamily: "var(--font-mono), monospace",
                 fontSize: 12,
