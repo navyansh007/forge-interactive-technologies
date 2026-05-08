@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Forge Interactive Technologies",
     description: "We build software, AI systems, and blockchain infrastructure.",
-    url: "https://forgeinteractive.io",
+    url: "https://forgeinteractivetechnologies.com",
     siteName: "Forge Interactive",
     type: "website",
   },

@@ -22,7 +22,7 @@ export async function POST(request: Request) {
   // const resend = new Resend(process.env.RESEND_API_KEY)
   // await resend.emails.send({
   //   from: 'Forge Contact <noreply@forgeinteractive.io>',
-  //   to: 'hello@forgeinteractive.io',
+  //   to: 'forgeinteractivetechnologies@gmail.com',
   //   subject: `New enquiry from ${name || email}`,
   //   text: `Name: ${name}\nEmail: ${email}\nCompany: ${company}\nType: ${projectType}\nBudget: ${budget}\n\n${message}`,
   // })

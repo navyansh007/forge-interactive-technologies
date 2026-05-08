@@ -21,8 +21,8 @@ const INFO_BLOCKS = [
   },
   {
     label: "Email",
-    value: "hello@forgeinteractive.io",
-    href: "mailto:hello@forgeinteractive.io",
+    value: "forgeinteractivetechnologies@gmail.com",
+    href: "mailto:forgeinteractivetechnologies@gmail.com",
   },
   {
     label: "Based in",
@@ -148,7 +148,7 @@ export default function ContactPage() {
               >
                 Can&apos;t find a time that works?{" "}
                 <a
-                  href="mailto:hello@forgeinteractive.io"
+                  href="mailto:forgeinteractivetechnologies@gmail.com"
                   style={{ color: "var(--offwhite)", textDecoration: "none", borderBottom: "1px solid var(--border)" }}
                 >
                   Send us an email

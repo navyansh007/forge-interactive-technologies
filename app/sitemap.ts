@@ -2,7 +2,7 @@ import { getAllSlugs } from "@/lib/cases";
 
 export default function sitemap() {
   const slugs = getAllSlugs();
-  const base = "https://forgeinteractive.io";
+  const base = "https://forgeinteractivetechnologies.com";
 
   const staticRoutes = [
     { url: base, lastModified: new Date() },

@@ -69,10 +69,10 @@ export default function CTA() {
         >
           or email us at{" "}
           <a
-            href="mailto:hello@forgeinteractive.io"
+            href="mailto:forgeinteractivetechnologies@gmail.com"
             style={{ color: "#6B6B6B", textDecoration: "none", borderBottom: "1px solid #D0CCC4" }}
           >
-            hello@forgeinteractive.io
+            forgeinteractivetechnologies@gmail.com
           </a>
         </p>
       </div>

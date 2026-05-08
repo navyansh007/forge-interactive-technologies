@@ -27,7 +27,7 @@ const COLS: { title: string; links: FooterLink[] }[] = [
   {
     title: "Contact",
     links: [
-      { label: "hello@forgeinteractive.io", href: "mailto:hello@forgeinteractive.io" },
+      { label: "forgeinteractivetechnologies@gmail.com", href: "mailto:forgeinteractivetechnologies@gmail.com" },
       { label: "LinkedIn",  href: "#" },
       { label: "GitHub",    href: "#" },
       { label: "Twitter / X", href: "#" },

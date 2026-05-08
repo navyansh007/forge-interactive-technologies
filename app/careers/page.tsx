@@ -122,7 +122,7 @@ export default function CareersPage() {
                   </div>
                 </div>
                 <a
-                  href="mailto:hello@forgeinteractive.io"
+                  href="mailto:forgeinteractivetechnologies@gmail.com"
                   className="hover-accent"
                   style={{
                     fontFamily: "var(--font-mono), monospace",
@@ -149,10 +149,10 @@ export default function CareersPage() {
             >
               Don&apos;t see a fit? Send us a note anyway at{" "}
               <a
-                href="mailto:hello@forgeinteractive.io"
+                href="mailto:forgeinteractivetechnologies@gmail.com"
                 style={{ color: "var(--accent)", textDecoration: "none" }}
               >
-                hello@forgeinteractive.io
+                forgeinteractivetechnologies@gmail.com
               </a>
             </p>
           </div>
