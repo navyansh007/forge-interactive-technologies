@@ -6,8 +6,18 @@ import ScrollReveal from "@/components/ScrollReveal";
 import CalendlyInline from "./CalendlyInline";
 
 export const metadata: Metadata = {
-  title: "Book a Call | Forge Interactive",
-  description: "30 minutes. No pitch deck. We talk about what you're building and whether we're the right fit.",
+  title: "Book a Call",
+  description:
+    "30 minutes. No pitch deck. We talk about what you're building and whether we're the right fit.",
+  alternates: {
+    canonical: "https://forgeinteractivetechnologies.com/contact",
+  },
+  openGraph: {
+    title: "Book a Call | Forge Interactive",
+    description:
+      "30 minutes. No pitch deck. We talk about what you're building and whether we're the right fit.",
+    url: "https://forgeinteractivetechnologies.com/contact",
+  },
 };
 
 const INFO_BLOCKS = [

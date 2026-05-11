@@ -19,8 +19,16 @@ export async function generateMetadata(
   const c = getCaseBySlug(slug);
   if (!c) return {};
   return {
-    title: `${c.name} | Forge Interactive`,
+    title: c.name,
     description: c.tagline,
+    alternates: {
+      canonical: `https://forgeinteractivetechnologies.com/work/${slug}`,
+    },
+    openGraph: {
+      title: `${c.name} | Forge Interactive`,
+      description: c.tagline,
+      url: `https://forgeinteractivetechnologies.com/work/${slug}`,
+    },
   };
 }
 

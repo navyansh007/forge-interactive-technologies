@@ -7,8 +7,18 @@ import Stats from "@/components/Stats";
 import CalendlyButton from "@/components/CalendlyButton";
 
 export const metadata: Metadata = {
-  title: "About | Forge Interactive",
-  description: "Forge Interactive was founded in 2026 by engineers who got tired of watching good ideas die in planning.",
+  title: "About",
+  description:
+    "Forge Interactive was founded in 2026 by engineers who got tired of watching good ideas die in planning. Meet the team.",
+  alternates: {
+    canonical: "https://forgeinteractivetechnologies.com/about",
+  },
+  openGraph: {
+    title: "About | Forge Interactive",
+    description:
+      "Forge Interactive was founded in 2026 by engineers who got tired of watching good ideas die in planning.",
+    url: "https://forgeinteractivetechnologies.com/about",
+  },
 };
 
 const VALUES = [
